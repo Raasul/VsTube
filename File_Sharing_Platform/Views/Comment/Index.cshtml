@@ -1,0 +1,26 @@
+﻿
+<h2>Comments</h2>
+
+<table>
+    <tr>
+        <th>Content</th>
+        <th>Posted Date</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var comment in Model)
+    {
+        <tr>
+            <td>@comment.Content</td>
+            <td>@comment.PostedDate</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@comment.Id">Edit</a> |
+                <form asp-action="Delete" method="post" style="display:inline">
+                    <input type="hidden" name="id" value="@comment.Id" />
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Create">Add New Comment</a>

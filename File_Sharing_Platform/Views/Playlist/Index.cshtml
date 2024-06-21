@@ -1,0 +1,28 @@
+﻿
+<h2>Playlists</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var playlist in Model)
+        {
+            <tr>
+                <td>@playlist.Name</td>
+                <td>@playlist.CreatedDate</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@playlist.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@playlist.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@playlist.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New</a>

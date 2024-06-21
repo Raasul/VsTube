@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Bootstrap
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="row">
+    @foreach (var video in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <iframe class="card-img-top" src="@video.Url" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                    <h5 class="card-title">@video.Title</h5>
+                    <p class="card-text">@video.Description</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="@Url.Action("Details", "Video", new { id = video.Id })" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="@Url.Action("Edit", "Video", new { id = video.Id })" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        </div>
+                        <small class="text-muted">@video.UploadDate.ToShortDateString()</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

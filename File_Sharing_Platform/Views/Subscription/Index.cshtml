@@ -1,0 +1,29 @@
+﻿
+<h2>Subscriptions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Subscribed To</th>
+            <th>Subscribed Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subscription in Model)
+        {
+            <tr>
+                <td>@subscription.UserId</td>
+                <td>@subscription.SubscribedToUserId</td>
+                <td>@subscription.SubscribedDate</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@subscription.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@subscription.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New Subscription</a>

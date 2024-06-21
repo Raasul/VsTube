@@ -1,0 +1,26 @@
+﻿
+<h2>Likes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Liked Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var like in Model)
+        {
+            <tr>
+                <td>@like.UserId</td>
+                <td>@like.LikedDate</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@like.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Add Like</a>
